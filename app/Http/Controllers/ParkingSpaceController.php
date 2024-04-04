@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ParkingSpaceRequest;
 use App\Http\Resources\ParkingSpaceResource;
+use App\Models\Car;
 use App\Models\ParkingSpace;
 
 class ParkingSpaceController extends Controller
@@ -35,5 +36,10 @@ class ParkingSpaceController extends Controller
         $parkingSpace->delete();
 
         return response()->json();
+    }
+
+    public function freeSpaces()
+    {
+        return ParkingSpaceResource::collection(ParkingSpace::whereState(true));
     }
 }

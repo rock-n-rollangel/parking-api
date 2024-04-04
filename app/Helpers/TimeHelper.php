@@ -25,7 +25,7 @@ class TimeHelper
         if (isset($this->time)) return $this->time;
 
         $hours = floor($this->seconds / 3600);
-        $minutes = floor(($this->seconds / 60) % 60);
+        $minutes = floor(intval(($this->seconds / 60)) % 60);
 
         return sprintf("%02d:%02d", $hours, $minutes);
     }
@@ -37,5 +37,10 @@ class TimeHelper
         list($hours, $minutes) = explode(':', $this->time);
 
         return (int) $hours * 3600 + (int) $minutes * 60;
+    }
+
+    public static function getSecondsFromTime(string $time): int
+    {
+        return (new self($time))->getDatabaseTime();
     }
 }

@@ -10,8 +10,8 @@ class CarRequest extends FormRequest
     {
         return [
             'number' => ['required'],
-            'entered_at' => ['required_without:left_at', 'date'],
-            'left_at' => ['required_without:entered_at', 'date'],
+            'entered_at' => ['sometimes', 'date_format:Y-m-d H:i'],
+            'left_at' => ['sometimes', 'date_format:Y-m-d H:i'],
         ];
     }
 

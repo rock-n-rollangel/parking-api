@@ -9,7 +9,7 @@ return new class extends Migration {
     {
         Schema::create('parking_spaces', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->unique();
             $table->boolean('state');
             $table->timestamps();
         });

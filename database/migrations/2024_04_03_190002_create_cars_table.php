@@ -11,7 +11,7 @@ return new class extends Migration {
             $table->id();
             $table->unsignedBigInteger('parking_space_id')->nullable();
             $table->string('number');
-            $table->timestamp('entered_at');
+            $table->timestamp('entered_at')->nullable();
             $table->timestamp('left_at')->nullable();
             $table->timestamps();
 
